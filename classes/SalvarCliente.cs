@@ -7,8 +7,9 @@ namespace CadastroVendaPoo.classes{
             string msg = "";
             StreamWriter arquivo = null;
             try{
+                arquivo = new StreamWriter("cadClientes.csv",true);
                 if(cpfValido(cliente.Cpf)){
-                    arquivo = new StreamWriter("cadClientes.csv",true);
+                    
                     arquivo.WriteLine(
                         cliente.Nome+";"+
                         cliente.Email+";"+
@@ -18,7 +19,7 @@ namespace CadastroVendaPoo.classes{
                     msg="Arquivo salvo com sucesso!";
                 }
                 else{
-                    msg ="CPF inválido!";
+                    msg ="CPF inválido!\n";
                 }
             }
             catch(Exception ex){
@@ -33,7 +34,7 @@ namespace CadastroVendaPoo.classes{
         private bool cpfValido(string cpfcnpjUsuario){
 
             bool retorno = true;
-            string Calculo ="";
+            string Calculo = "";
 
             int [] v1 = {10,9,8,7,6,5,4,3,2};
             int [] v2 = {11,10,9,8,7,6,5,4,3,2};

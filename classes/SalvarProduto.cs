@@ -16,7 +16,7 @@ namespace CadastroVendaPoo.classes
                         produto.Descricao+";"+
                         produto.Preco
                     );
-                    msg="Arquivo salvo com sucesso!";
+                    msg="Arquivo salvo com sucesso!\n";
             }
             catch(Exception ex){
                 msg = "Erro ao tentar gravar o arquivo"+ex.Message;

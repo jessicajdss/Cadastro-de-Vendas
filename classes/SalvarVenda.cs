@@ -14,9 +14,10 @@ namespace CadastroVendaPoo.classes
                     arquivo.WriteLine(
                         venda.Cpf+";"+
                         venda.Id+";"+
+                        venda.Prec"+o+";
                         venda.DataVenda
                     );
-                    msg="Arquivo salvo com sucesso!";
+                    msg="Arquivo salvo com sucesso!\n";
                // }
                 //else{
                 //    msg ="Cliente não cadastrado!";
@@ -31,7 +32,51 @@ namespace CadastroVendaPoo.classes
             return msg;    
         }
 
+        private bool cpfCadastrado(string verificacpf){
+            
+            //string retorno = "";
+            string[] retornacpf = null; 
+            bool retorno = true;
 
+            StreamReader ex = null;
+            ex = new StreamReader("cadCliente.csv");                    
+
+            string linha;
+            int contLin=0;
+
+            while(ex.ReadLine()!= null){
+                contLin++;
+            }
+
+            string[,]dados = new string [contLin,4];
+
+            // while((linha = ex.ReadLine())!= null){
+            //     retornacpf = linha.Split(';');
+// posicao 2 cpf
+//listar os produtos
+linha = ex.ReadLine();
+            for(int lin = 0;lin < dados.GetLength(0);lin++){
+               for(int col = 0; col < dados.GetLength(1);col++){
+                    retornacpf= linha.Split(';'); 
+                    if(retornacpf[lin] == verificacpf){
+
+                    }
+                        // if (dados[lin,col] == verificacpf){
+                        //     Console.WriteLine("Dados do Cliente: \n");
+                        //     Console.Write(dados[lin,0]+"\t");
+                        //     Console.Write(dados[lin,1]+"\t");
+                        //     Console.Write(dados[lin,2]+"\t");
+                        //     retorno = true;
+                        // }
+                        // else{
+                        //     Console.WriteLine("Cliente não encontrado.");
+                        //     retorno=false;
+                        // }
+                }
+            }
+
+        return retorno;    
+        }
 
     }
 }

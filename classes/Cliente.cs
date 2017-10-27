@@ -9,6 +9,7 @@ namespace CadastroVendaPoo.classes{
         private string email;
         private string cpf;
         private DateTime datacadastro;
+
         /// <summary>
         /// Constroi o Objeto cliente
         /// </summary>
@@ -31,8 +32,8 @@ namespace CadastroVendaPoo.classes{
             this.datacadastro = datacadastro;
         }
         public string Nome { get{return nome;} set{nome=value;} }
-        public string Email{get{return email;} set{email=value;}}
-        public string Cpf{get{return cpf;} set{cpf=value;}}
-        public DateTime DataCadastro{get{return datacadastro;} set{datacadastro = value;}}
+        public string Email { get{return email;} set{email=value;} }
+        public string Cpf { get{return cpf;} set{cpf=value;} }
+        public DateTime DataCadastro { get{return datacadastro;} set{datacadastro = value;} }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using CadastroVendaPoo.classes;
 
 namespace CadastroVendaPoo
@@ -6,19 +7,22 @@ namespace CadastroVendaPoo
     class Program
     {
         static void Main(string[] args)
-        {
+        {      
+            
+        int opcao = 0;     
+        
+        while(opcao!=9){
+           //Console.Clear();
            Console.WriteLine("###################################################");
            Console.WriteLine("#                                                 #");
            Console.WriteLine("#              Programa de Vendas                 #");
            Console.WriteLine("#                                                 #"); 
            Console.WriteLine("###################################################");
-           
-           int opcao = 0;
-           while(opcao!=9){
-               //Console.Clear();
+               
                Console.WriteLine("Informe:\n1 - Cadastro de Clientes\n2 - Cadastro de Produtos\n3 - Cadastro de Venda\n4 - Extrato de Cliente\n9 - Sair\n");
                opcao = int.Parse(Console.ReadLine());
-
+               
+               Console.Clear();
                 switch(opcao){
                     case 1:
 
@@ -61,15 +65,27 @@ namespace CadastroVendaPoo
                         Console.WriteLine("Digite o cpf do cliente: ");
                         string cpfvenda = Console.ReadLine();
 
+                        // StreamReader ex = null;
+                        // ex = new StreamReader("cadProdutos.csv"); 
+                        // int numeroLinhas = System.IO.File.ReadAllLines("cadProdutos.csv").Length; 
+                        // string[,]dados = new string [numeroLinhas,4];
+
+                        // for(int lin = 0;lin < dados.GetLength(0);lin++){
+                        //     for(int col = 0; col < dados.GetLength(1);col++){
+                        //         Console.WriteLine("\nLista de Produtos: ");
+                        //         Console.Write("Código: "+ dados[lin,0]+"\t");
+                        //         Console.Write("Produto: "+ dados[lin,1]+"\t");
+                        //         Console.Write("Preço: "+ dados[lin,3]+"\t");
+                        //     }
+                        // }
+
                         Console.WriteLine("Digite o código do produto:");
                         int codprod_venda = int.Parse(Console.ReadLine());
 
                         Venda vv = new Venda(cpfvenda, codprod_venda, DateTime.Now.Date);
                         SalvarVenda sv = new SalvarVenda();
                         Console.WriteLine(sv.Salvar(vv));
-
-
-                        
+ 
                         break;
 
 
